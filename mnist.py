@@ -1,7 +1,7 @@
 from keras.datasets import mnist
 from keras.models import Sequential, model_from_json
 from keras.layers import Dense, Dropout, Activation, Flatten, Input
-from keras.layers import Convolution2D, MaxPooling2D
+from keras.layers import Conv2D, MaxPooling2D, Convolution2D
 from keras.preprocessing.image import ImageDataGenerator
 from keras.utils import np_utils
 
@@ -9,6 +9,8 @@ import argparse
 import numpy as np
 
 from tensorflow.python.platform import flags
+# import tensorflow as tf
+# flags = tf.app.flags
 FLAGS = flags.FLAGS
 
 
@@ -32,7 +34,6 @@ def data_mnist(one_hot=True):
     (X_train, y_train), (X_test, y_test) = mnist.load_data()
 
     y_train = y_train
-
 
     X_train = X_train.reshape(X_train.shape[0],
                               FLAGS.IMAGE_ROWS,
